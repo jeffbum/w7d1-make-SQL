@@ -78,10 +78,10 @@ sum(quantity)
 
 
 How much was spent on books?
-Answer: select category, sum(price) from items where category like '%Books%';
-category      sum(price)
-------------  ----------
-Toys & Books  59241
+
+ Books    3056    420566
+ 
+Answer: select items.category, items.price, sum(items.price*orders.quantity) from items INNER JOIN orders on orders.item_id=items.id where items.category='Books';
 
 
 Simulate buying an item by inserting a User for yourself and an Order for that User.
